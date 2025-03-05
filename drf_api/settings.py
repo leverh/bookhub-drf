@@ -46,7 +46,7 @@ REST_USE_JWT = True
 
 JWT_AUTH_COOKIE = 'my-app-auth'
 
-JWT_AUTH_SECURE = False
+JWT_AUTH_SECURE = True
 
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 
@@ -196,8 +196,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SESSION_COOKIE_SAMESITE = "None"
+SESSION_COOKIE_SECURE = True
+
 CSRF_COOKIE_SAMESITE = "None"
-CSRF_COOKIE_SECURE = False  # Change to True when using HTTPS
+CSRF_COOKIE_SECURE = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Local development
