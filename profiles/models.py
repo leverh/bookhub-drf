@@ -1,9 +1,6 @@
 from django.db import models
-from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
-# Create your models here.
-
 
 class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -12,9 +9,9 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
-    upload_to='images/', 
-    default='default_profile_p4pvg2.jpg'
-)
+        upload_to='images/', 
+        default='images/default_profile_p4pvg2.jpg'
+    )
 
     class Meta:
         ordering = ['-created_at']
