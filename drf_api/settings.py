@@ -68,14 +68,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['8000-leverh-drf-3lech7xyrcc.ws-eu104.gitpod.io',
-                 os.environ.get('ALLOWED_HOST'), 
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 
                  '.onrender.com',
                 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
+        os.environ.get('CLIENT_ORIGIN'),
+        "http://localhost:3000",
+        "https://bookhub-lime.vercel.app", 
     ]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
