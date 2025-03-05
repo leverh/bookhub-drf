@@ -13,7 +13,7 @@ class Profile(models.Model):
     content = models.TextField(blank=True)
     image = models.ImageField(
     upload_to='images/', 
-    default='default='default_profile_p4pvg2.jpg'
+    default='default_profile_p4pvg2.jpg'
 )
 
     class Meta:
