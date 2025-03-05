@@ -196,9 +196,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SESSION_COOKIE_SAMESITE = "None"
-SESSION_COOKIE_SECURE = False
-
+CSRF_COOKIE_SAMESITE = "None"
+CSRF_COOKIE_SECURE = False  # Change to True when using HTTPS
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Local development
@@ -209,6 +208,7 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     "accept",
+    "accept-encoding",  # Fixes CORS preflight issues
     "authorization",  # Allow Authorization header for JWT
     "content-type",  # Allow Content-Type header
     "x-csrftoken",
