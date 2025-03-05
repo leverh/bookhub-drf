@@ -211,11 +211,12 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     "accept",
-    "accept-encoding",  # Fixes CORS preflight issues
-    "authorization",  # Allow Authorization header for JWT
-    "content-type",  # Allow Content-Type header
+    "accept-encoding",  
+    "authorization",  
+    "content-type",  
     "x-csrftoken",
     "x-requested-with",
+    "access-control-allow-origin",
 ]
 
 CORS_ALLOW_METHODS = ["*"]  # Allow all HTTP methods
