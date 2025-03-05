@@ -118,14 +118,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'drf_api.urls'
 
-
-CORS_ALLOWED_ORIGINS = ['https://react-app-1-d1348b785b3f.herokuapp.com',
-                        'https://bookhub-gae6.onrender.com',]
-
-
-
-
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -204,6 +196,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SESSION_COOKIE_SAMESITE = "None"
+SESSION_COOKIE_SECURE = False
+
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Local development
     "https://bookhub-lime.vercel.app",  # Vercel frontend
@@ -211,5 +207,12 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ["*"]  # Allow all headers
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "authorization",  # Allow Authorization header for JWT
+    "content-type",  # Allow Content-Type header
+    "x-csrftoken",
+    "x-requested-with",
+]
+
 CORS_ALLOW_METHODS = ["*"]  # Allow all HTTP methods
