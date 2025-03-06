@@ -219,4 +219,11 @@ CORS_ALLOW_HEADERS = [
     "access-control-allow-origin",
 ]
 
-CORS_ALLOW_METHODS = ["*"]  # Allow all HTTP methods
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+]
