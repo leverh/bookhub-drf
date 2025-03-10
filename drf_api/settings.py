@@ -200,12 +200,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = "None"
 CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_DOMAIN = ".bookhub-lime.vercel.app"
 SESSION_COOKIE_SAMESITE = "None"
 SESSION_COOKIE_SECURE = True
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Local development
+    # "http://localhost:3000",  # Local development
     "https://bookhub-lime.vercel.app",  # Vercel frontend
     "https://bookhub-gae6.onrender.com",  # Render frontend
 ]
@@ -236,7 +237,9 @@ CORS_ALLOW_METHODS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "http://bookhub-lime.vercel.app",  
+    "https://bookhub-drf.onrender.com",
     "https://bookhub-lime.vercel.app",  
     "http://bookhub-gae6.onrender.com",
     "https://bookhub-gae6.onrender.com"
 ]
+
