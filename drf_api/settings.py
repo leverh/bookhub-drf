@@ -242,6 +242,13 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "https://bookhub-lime.vercel.app",  
     "https://bookhub-drf.onrender.com",
-    "https://bookhub-gae6.onrender.com"
+    "https://bookhub-gae6.onrender.com",
 ]
 
+CSRF_TRUSTED_REFERERS = [
+    "https://bookhub-lime.vercel.app",
+]
+
+CSRF_USE_SESSIONS = False
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
+CSRF_COOKIE_PARTITIONED = False
