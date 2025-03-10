@@ -2,11 +2,15 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import root_route, logout_route
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.utils.decorators import method_decorator
+from django.views import View
+from django.urls import path
 from django.http import JsonResponse
 
-# CSRF Token Fetching View
-def get_csrf_token(request):
-    return JsonResponse({"message": "CSRF token set"})
+class GetCSRFTokenView(View):
+    @method_decorator(ensure_csrf_cookie)
+    def get(self, request, *args, **kwargs):
+        return JsonResponse({"message": "CSRF token set"})
 
 urlpatterns = [
     path('', root_route),
