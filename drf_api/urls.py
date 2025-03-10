@@ -1,16 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import root_route, logout_route
+from .views import root_route, logout_route, GetCSRFTokenView, auth_status
 from django.views.decorators.csrf import ensure_csrf_cookie
-from django.utils.decorators import method_decorator
-from django.views import View
-from django.http import JsonResponse
-
-# ✅ Define the CSRF token view correctly
-class GetCSRFTokenView(View):
-    @method_decorator(ensure_csrf_cookie)
-    def get(self, request, *args, **kwargs):
-        return JsonResponse({"message": "CSRF token set"})
 
 urlpatterns = [
     path('', root_route),
@@ -19,9 +10,9 @@ urlpatterns = [
     path('dj-rest-auth/logout/', logout_route),
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
     path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
-
-    path('get-csrf-token/', GetCSRFTokenView.as_view()), 
-
+    path('get-csrf-token/', GetCSRFTokenView.as_view()),
+    path('api/auth-status/', auth_status, name='auth_status'),
+    
     # App-specific routes
     path('', include('profiles.urls')),
     path('', include('posts.urls')),
