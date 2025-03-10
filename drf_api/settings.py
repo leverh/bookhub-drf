@@ -227,3 +227,10 @@ CORS_ALLOW_METHODS = [
     "DELETE",
     "OPTIONS"
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",  
+    "https://bookhub-lime.vercel.app",
+]
+
+CSRF_COOKIE_HTTPONLY = False
